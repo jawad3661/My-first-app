@@ -52,18 +52,18 @@ export default function TextForm(props) {
                     <h2 style={{color:props.mode==='light'?'black':'white'}}>{props.heading}</h2>
                     <textarea value={text} style={{backgroundColor:props.mode==='light'?'white':'#273d50',color:props.mode==='light'?'black':'white'}} onChange={HandleOnChange} className="form-control" id="myBox" rows="8" placeholder="Enter Text Here..."></textarea>
                 </div>
-                <button className="btn btn-primary mx-1" onClick={UpperCasecnvrt}>Convert Into Uppercase</button>
-                <button className="btn btn-success mx-1" onClick={LowerCasecnvrt}>Convert Into Lowercase</button>
-                <button className="btn btn-info mx-1" onClick={handlecopy}>Copy Text</button>
-                <button type="button" class="btn btn-dark mx-1" onClick={Removespaces}>Remove Extra Spaces</button>
-                <button type="button" class="btn btn-primary mx-1" onClick={Capitalize_each_word}>Capitalize Each Word</button>
-                <button className="btn btn-warning" onClick={Clearcnvrt}>Clear</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={UpperCasecnvrt}>Convert Into Uppercase</button>
+                <button disabled={text.length===0} className="btn btn-success mx-1 my-1" onClick={LowerCasecnvrt}>Convert Into Lowercase</button>
+                <button disabled={text.length===0} className="btn btn-info mx-1 my-1" onClick={handlecopy}>Copy Text</button>
+                <button disabled={text.length===0} class="btn btn-dark mx-1 my-1" onClick={Removespaces}>Remove Extra Spaces</button>
+                <button disabled={text.length===0} class="btn btn-primary mx-1 my-1" onClick={Capitalize_each_word}>Capitalize Each Word</button>
+                <button disabled={text.length===0} className="btn btn-warning" onClick={Clearcnvrt}>Clear</button>
             </div>
             <div className="container my-3" style={{color:props.mode==='light'?'black':'white'}}>
                 <h2>Text Summary</h2>
                 <p>{text.length>0 ? text.trim().split(" ").length : 0} Words || {text.length} Characters || {text.split("\n").length - 1} Line</p>
                 <h2>Preview</h2>
-                <p>{text.length>0?text:"Enter Something in TextArea to Preview"}</p>
+                <p>{text.length>0?text:"Nothing to Preview"}</p>
 
             </div>
 
